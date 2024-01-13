@@ -1,13 +1,18 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
+local opt = vim.opt
+local cmd = vim.cmd
 
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.expandtab = true
+opt.number = true
+opt.relativenumber = true
 
-vim.opt.smartcase = true
-vim.opt.ignorecase = true
+opt.autoindent = true
+opt.smartindent = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.expandtab = true
 
-vim.opt.timeoutlen = 1000
+opt.smartcase = true
+opt.ignorecase = true
+
+opt.timeoutlen = 500
+
+cmd[[colorscheme tokyonight]]
