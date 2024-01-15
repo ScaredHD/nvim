@@ -1,59 +1,65 @@
 
 local map = vim.keymap.set
----------------------- Normal mode key maps ----------------------
 vim.g.mapleader = ' '
-map('n', '<space>', '<nop>', {noremap = true, silent = true})
-map('n', '<leader>k', '<nop>', {noremap = true, silent = true})
+
+map('i', 'jk', '<esc>', { noremap = true, silent = true, nowait = true })
+
+map('n', '<space>', '<nop>', { noremap = true, silent = true })
+map('n', '<leader>k', '<nop>', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
-map('n', '<c-s>', ':w<cr>', {noremap = true, silent = true})
-map('n', '<leader>v', '<c-v>', {noremap = true, silent = true})
-map('n', '<leader>w', '<c-w>', {noremap = true, silent = true})
-map('n', '<c-w>', ':q<cr>', {noremap = true, silent = true})
+map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
+map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q<cr>', { noremap = true, silent = true })
 
+-- Better up/down
+map({'n', 'x'}, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({'n', 'x'}, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({'n', 'x'}, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({'n', 'x'}, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Moving around windows 
-map('n', '<c-j>', '<c-w>j', {noremap = true, silent = true})
-map('n', '<c-k>', '<c-w>k', {noremap = true, silent = true})
-map('n', '<c-h>', '<c-w>h', {noremap = true, silent = true})
-map('n', '<c-l>', '<c-w>l', {noremap = true, silent = true})
+map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+map('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
+map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+map('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Clear search highlight
-map('n', '<c-n>', ':noh<cr>', {noremap = true, silent = true})
+map('n', '<C-n>', ':noh<cr>', { noremap = true, silent = true })
 
 -- Move line up and down
-map('n', '<a-j>', ':m+1<cr>', {noremap = true, silent = true})
-map('n', '<a-k>', ':m-2<cr>', {noremap = true, silent = true})
+map('n', '<A-j>', '<cmd>m .+1<cr>==')
+map('n', '<A-k>', '<cmd>m .-2<cr>==')
+map('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi')
+map('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi')
+map('v', '<A-j>', ":m '>+1<cr>gv=gv")
+map('v', '<A-k>', ":m '<-2<cr>gv=gv")
 
 -- Copy line up and down
-map('n', '<a-s-j>', 'm`yyp``j', {noremap = true, silent = true})
-map('n', '<a-s-k>', 'm`yyP``k', {noremap = true, silent = true})
-
--- Jump to bracket
-map('n', 'K', '%', {noremap = true, silent = true})
-
----------------------- Insert mode key maps ----------------------
-map('i', 'jk', '<esc>', {noremap = true, silent = true, nowait = true})
+map('n', '<A-S-j>', 'm`yyp``j', { noremap = true, silent = true })
+map('n', '<A-S-k>', 'm`yyP``k', { noremap = true, silent = true })
 
 -- Cursor movement
-map('i', '<a-j>', '<down>', {noremap = true, silent = true})
-map('i', '<a-k>', '<up>', {noremap = true, silent = true})
-map('i', '<a-h>', '<left>', {noremap = true, silent = true})
-map('i', '<a-l>', '<right>', {noremap = true, silent = true})
-map('i', '<a-w>', '<c-o>w', {noremap = true, silent = true})
-map('i', '<a-b>', '<c-o>b', {noremap = true, silent = true})
-map('i', '<a-o>', '<end>', {silent = true})
+map('i', '<A-j>', '<down>', { noremap = true, silent = true })
+map('i', '<A-k>', '<up>', { noremap = true, silent = true })
+map('i', '<A-h>', '<left>', { noremap = true, silent = true })
+map('i', '<A-l>', '<right>', { noremap = true, silent = true })
+map('i', '<A-w>', '<C-o>w', { noremap = true, silent = true })
+map('i', '<A-b>', '<C-o>b', { noremap = true, silent = true })
+map('i', '<A-o>', '<end>', { silent = true })
+-- Smart home
 vim.cmd([[noremap <expr> <silent> <home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
-vim.cmd([[imap <silent> <a-u> <c-o><home>]])  -- Smart home
+vim.cmd([[imap <silent> <A-u> <C-o><home>]])  
 
 
 -- Ctrl+Backspace to delete a word
-map('i', '<c-h>', '<c-w>', {silent = true})
+map('i', '<C-h>', '<C-w>', { silent = true })
 
 -- Recover point
-map('i', '<c-u>', '<c-g>u<c-u>', {noremap = true})
-map('i', '<c-w>', '<c-g>u<c-w>', {noremap = true})
+map('i', '<C-u>', '<C-g>u<C-u>', { noremap = true })
+map('i', '<C-w>', '<C-g>u<C-w>', { noremap = true })
+map('i', ',', ',<C-g>u')
+map('i', '.', '.<C-g>u')
+map('i', ';', ';<C-g>u')
 
----------------------- Visual mode key maps ----------------------
 
 
