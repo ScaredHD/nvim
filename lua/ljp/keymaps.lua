@@ -9,6 +9,7 @@ map('n', '<leader>k', '<nop>', { noremap = true, silent = true })
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
 map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q<cr>', { noremap = true, silent = true })
+map('n', '<leader>w', '<C-w>', { noremap = true, silent = true })
 
 -- Better up/down
 map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -19,8 +20,8 @@ map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = t
 -- Moving around windows
 map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 map('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 
 -- Clear search highlight
 map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
