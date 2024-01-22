@@ -4,7 +4,6 @@ vim.g.mapleader = ' '
 map('i', 'jk', '<esc>', { noremap = true, silent = true, nowait = true })
 
 map('n', '<space>', '<nop>', { noremap = true, silent = true })
-map('n', '<leader>k', '<nop>', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
@@ -29,8 +28,6 @@ map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
 -- Move line up and down
 map('n', '<A-j>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
 map('n', '<A-k>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
-map('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi', { noremap = true, silent = true })
-map('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { noremap = true, silent = true })
 map('v', '<A-j>', ":m '>+1<cr>gv=g,v", { noremap = true, silent = true })
 map('v', '<A-k>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
 
@@ -43,13 +40,10 @@ map('i', '<A-j>', '<down>', { noremap = true, silent = true })
 map('i', '<A-k>', '<up>', { noremap = true, silent = true })
 map('i', '<A-h>', '<left>', { noremap = true, silent = true })
 map('i', '<A-l>', '<right>', { noremap = true, silent = true })
-map('i', '<A-w>', '<C-o>w', { noremap = true, silent = true })
-map('i', '<A-b>', '<C-o>b', { noremap = true, silent = true })
 map('i', '<A-o>', '<end>', { noremap = true, silent = true })
 -- Smart home
 vim.cmd([[noremap <expr> <silent> <home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
 vim.cmd([[imap <silent> <A-u> <C-o><home>]])
-
 
 -- Ctrl+Backspace to delete a word
 map('i', '<C-h>', '<C-w>', { noremap = true, silent = true })
