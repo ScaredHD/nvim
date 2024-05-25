@@ -17,8 +17,9 @@ map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent =
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Remap of home(^) and end($)
--- map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
--- map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
+map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
+map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
+map({ 'n', 'x', 'o'}, 'M', '%', { noremap = true, silent = true })
 
 -- Moving around windows
 map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
