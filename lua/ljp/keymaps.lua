@@ -16,7 +16,11 @@ map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true
 map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
+<<<<<<< HEAD
 -- Reuse capital letters
+=======
+-- Remap of home(^) and end($)
+>>>>>>> fix
 map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
 map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
 map({ 'n', 'x', 'o'}, 'M', '%', { noremap = true, silent = true })
