@@ -21,43 +21,43 @@ map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
 map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
 map({ 'n', 'x', 'o'}, 'M', '%', { noremap = true, silent = true })
 
--- Moving around windows
-map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-map('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-map('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+-- moving around windows
+map('n', '<c-j>', '<c-w>j', { noremap = true, silent = true })
+map('n', '<c-k>', '<c-w>k', { noremap = true, silent = true })
+map('n', '<c-l>', '<c-w>l', { noremap = true, silent = true })
+map('n', '<c-h>', '<c-w>h', { noremap = true, silent = true })
 
--- Clear search highlight
-map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
+-- clear search highlight
+map('n', '<esc>', '<esc>:noh<cr>', { noremap = true, silent = true })
 
--- Move line up and down
-map('n', '<A-j>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
-map('n', '<A-k>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
-map('v', '<A-j>', ":m '>+1<cr>gv=g,v", { noremap = true, silent = true })
-map('v', '<A-k>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
+-- move line up and down
+map('n', '<a-j>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
+map('n', '<a-k>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
+map('v', '<a-j>', ":m '>+1<cr>gv=g,v", { noremap = true, silent = true })
+map('v', '<a-k>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
 
--- Copy line up and down
-map('n', '<A-S-j>', 'm`yyp``j', { noremap = true, silent = true })
-map('n', '<A-S-k>', 'm`yyP``k', { noremap = true, silent = true })
+-- copy line up and down
+map('n', '<a-s-j>', 'm`yyp``j', { noremap = true, silent = true })
+map('n', '<a-s-k>', 'm`yyp``k', { noremap = true, silent = true })
 
--- Cursor movement in insert mode
-map('i', '<A-j>', '<down>', { noremap = true, silent = true })
-map('i', '<A-k>', '<up>', { noremap = true, silent = true })
-map('i', '<A-h>', '<left>', { noremap = true, silent = true })
-map('i', '<A-l>', '<right>', { noremap = true, silent = true })
-map('i', '<A-o>', '<end>', { noremap = true, silent = true })
--- Smart home
-vim.cmd([[noremap <expr> <silent> <home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
-vim.cmd([[imap <silent> <A-u> <C-o><home>]])
+-- cursor movement in insert mode
+map('i', '<a-j>', '<down>', { noremap = true, silent = true })
+map('i', '<a-k>', '<up>', { noremap = true, silent = true })
+map('i', '<a-h>', '<left>', { noremap = true, silent = true })
+map('i', '<a-l>', '<right>', { noremap = true, silent = true })
+map('i', '<a-o>', '<end>', { noremap = true, silent = true })
+-- smart home
+vim.cmd([[noremap <expr> <silent> <home> col('.') == match(getline('.'),'\s')+1 ? '0' : '^']])
+vim.cmd([[imap <silent> <a-u> <c-o><home>]])
 
--- Ctrl+Backspace to delete a word
-map('i', '<C-h>', '<C-w>', { noremap = true, silent = true })
+-- ctrl+backspace to delete a word
+map('i', '<c-h>', '<c-w>', { noremap = true, silent = true })
 
--- Recover point
-map('i', '<C-u>', '<C-g>u<C-u>', { noremap = true, silent = true })
-map('i', '<C-w>', '<C-g>u<C-w>', { noremap = true, silent = true })
-map('i', ',', ',<C-g>u', { noremap = true, silent = true })
-map('i', '.', '.<C-g>u', { noremap = true, silent = true })
-map('i', ';', ';<C-g>u', { noremap = true, silent = true })
-map('i', '?', '?<C-g>u', { noremap = true, silent = true })
+-- recover point
+map('i', '<c-u>', '<c-g>u<c-u>', { noremap = true, silent = true })
+map('i', '<c-w>', '<c-g>u<c-w>', { noremap = true, silent = true })
+map('i', ',', ',<c-g>u', { noremap = true, silent = true })
+map('i', '.', '.<c-g>u', { noremap = true, silent = true })
+map('i', ';', ';<c-g>u', { noremap = true, silent = true })
+map('i', '?', '?<c-g>u', { noremap = true, silent = true })
 map('i', '!', '!<C-g>u', { noremap = true, silent = true })
