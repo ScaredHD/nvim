@@ -16,6 +16,10 @@ map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true
 map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
+-- Remap of home(^) and end($)
+-- map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
+-- map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
+
 -- Moving around windows
 map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 map('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
@@ -35,7 +39,7 @@ map('v', '<A-k>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
 map('n', '<A-S-j>', 'm`yyp``j', { noremap = true, silent = true })
 map('n', '<A-S-k>', 'm`yyP``k', { noremap = true, silent = true })
 
--- Cursor movement
+-- Cursor movement in insert mode
 map('i', '<A-j>', '<down>', { noremap = true, silent = true })
 map('i', '<A-k>', '<up>', { noremap = true, silent = true })
 map('i', '<A-h>', '<left>', { noremap = true, silent = true })
