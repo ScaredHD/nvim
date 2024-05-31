@@ -17,6 +17,9 @@ map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true
 map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', '<C-d>', '<C-d>zz', {noremap = true, silent = true})
+map('n', '<C-u>', '<C-u>zz', {noremap = true, silent = true})
+
 
 -- Reuse some capital letters
 map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
