@@ -1,12 +1,14 @@
 local map = vim.keymap.set
 vim.g.mapleader = ' '
 
-map('i', 'jk', '<esc>', { noremap = true, silent = true, nowait = true })
+map('i', 'jk', '<Esc>', { noremap = true, silent = true, nowait = true })
 
-map('n', '<space>', '<nop>', { noremap = true, silent = true })
+map('n', '<Space>', '<nop>', { noremap = true, silent = true })
+
+map('n', '<leader>j', 'i<cr><Esc>', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
-map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>')
+map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
 map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q<cr>', { noremap = true, silent = true })
 map('n', '<leader>w', '<C-w>', { noremap = true, silent = true })
 
