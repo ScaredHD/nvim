@@ -5,7 +5,7 @@ map('i', 'jk', '<Esc>', { noremap = true, silent = true, nowait = true })
 
 map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
-map('n', '<leader>j', 'i<cr><Esc>', { noremap = true, silent = true })
+map('n', '<C-j>', 'i<cr><Esc>', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
@@ -27,10 +27,10 @@ map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
 map({ 'n', 'x', 'o'}, 'M', '%', { noremap = true, silent = true })
 
 -- Moving around windows
-map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-map('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-map('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+map('n', '<leader>h', '<C-w>h', { noremap = true, silent = true })
+map('n', '<leader>j', '<C-w>j', { noremap = true, silent = true })
+map('n', '<leader>k', '<C-w>k', { noremap = true, silent = true })
+map('n', '<leader>l', '<C-w>l', { noremap = true, silent = true })
 
 -- Clear search highlight
 map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
@@ -46,12 +46,11 @@ map('n', '<A-S-j>', 'm`yyp``j', { noremap = true, silent = true })
 map('n', '<A-S-k>', 'm`yyP``k', { noremap = true, silent = true })
 
 -- Cursor movement in insert mode
+map('i', '<A-h>', '<left>', { noremap = true, silent = true })
 map('i', '<A-j>', '<down>', { noremap = true, silent = true })
 map('i', '<A-k>', '<up>', { noremap = true, silent = true })
-map('i', '<A-h>', '<left>', { noremap = true, silent = true })
 map('i', '<A-l>', '<right>', { noremap = true, silent = true })
 map('i', '<A-o>', '<end>', { noremap = true, silent = true })
--- Smart home
 vim.cmd([[noremap <expr> <silent> <home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
 vim.cmd([[imap <silent> <A-u> <C-o><home>]])
 
