@@ -5,7 +5,7 @@ map('i', 'jk', '<Esc>', { noremap = true, silent = true, nowait = true })
 
 map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
-map('n', '<C-j>', 'i<cr><Esc>', { noremap = true, silent = true })
+map('n', '<C-j>', 'i<cr><Esc>^', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
