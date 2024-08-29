@@ -17,20 +17,27 @@ map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true
 map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', '<C-d>', '<C-d>zz', {noremap = true, silent = true})
-map('n', '<C-u>', '<C-u>zz', {noremap = true, silent = true})
+map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
 
 -- Reuse some capital letters
-map({ 'n', 'x', 'o'}, 'H', '^', { noremap = true, silent = true })
-map({ 'n', 'x', 'o'}, 'L', '$', { noremap = true, silent = true })
-map({ 'n', 'x', 'o'}, 'M', '%', { noremap = true, silent = true })
+map({ 'n', 'x', 'o' }, 'H', '^', { noremap = true, silent = true })
+map({ 'n', 'x', 'o' }, 'L', '$', { noremap = true, silent = true })
+map({ 'n', 'x', 'o' }, 'M', '%', { noremap = true, silent = true })
 
 -- Moving around windows
 map('n', '<leader>h', '<C-w>h', { noremap = true, silent = true })
 map('n', '<leader>j', '<C-w>j', { noremap = true, silent = true })
 map('n', '<leader>k', '<C-w>k', { noremap = true, silent = true })
 map('n', '<leader>l', '<C-w>l', { noremap = true, silent = true })
+
+map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+map('n', 'n', 'nzz', { noremap = true, silent = true })
+map('n', 'N', 'Nzz', { noremap = true, silent = true })
+
+map('n', 'Y', 'y$', { noremap = true, silent = true })
 
 -- Clear search highlight
 map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
