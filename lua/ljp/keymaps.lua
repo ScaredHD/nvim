@@ -7,9 +7,10 @@ map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
 map('n', '<C-j>', 'i<cr><Esc>^', { noremap = true, silent = true })
 
+
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
-map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q<cr>', { noremap = true, silent = true })
+map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q!<cr>', { noremap = true, silent = true })
 map('n', '<leader>w', '<C-w>', { noremap = true, silent = true })
 
 -- Better up/down
@@ -20,17 +21,10 @@ map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = t
 map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
-
 -- Reuse some capital letters
 map({ 'n', 'x', 'o' }, 'H', '^', { noremap = true, silent = true })
 map({ 'n', 'x', 'o' }, 'L', '$', { noremap = true, silent = true })
 map({ 'n', 'x', 'o' }, 'M', '%', { noremap = true, silent = true })
-
--- Moving around windows
-map('n', '<leader>h', '<C-w>h', { noremap = true, silent = true })
-map('n', '<leader>j', '<C-w>j', { noremap = true, silent = true })
-map('n', '<leader>k', '<C-w>k', { noremap = true, silent = true })
-map('n', '<leader>l', '<C-w>l', { noremap = true, silent = true })
 
 map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
@@ -43,19 +37,17 @@ map('n', 'Y', 'y$', { noremap = true, silent = true })
 map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
 
 -- Move line up and down
-map('n', '<A-j>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
-map('n', '<A-k>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
-map('v', '<A-j>', ":m '>+1<cr>gv=g,v", { noremap = true, silent = true })
-map('v', '<A-k>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
+map('n', '<A-down>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
+map('n', '<A-up>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
+map('v', '<A-down>', ":m '>+1<cr>gv=g,v", { noremap = true, silent = true })
+map('v', '<A-up>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
 
 -- Copy line up and down
-map('n', '<A-S-j>', 'm`yyp``j', { noremap = true, silent = true })
-map('n', '<A-S-k>', 'm`yyP``k', { noremap = true, silent = true })
+map('n', '<A-S-down>', 'm`yyp``j', { noremap = true, silent = true })
+map('n', '<A-S-up>', 'm`yyP``k', { noremap = true, silent = true })
 
 -- Cursor movement in insert mode
 map('i', '<A-h>', '<left>', { noremap = true, silent = true })
-map('i', '<A-j>', '<down>', { noremap = true, silent = true })
-map('i', '<A-k>', '<up>', { noremap = true, silent = true })
 map('i', '<A-l>', '<right>', { noremap = true, silent = true })
 map('i', '<A-o>', '<end>', { noremap = true, silent = true })
 vim.cmd([[noremap <expr> <silent> <home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
@@ -75,3 +67,14 @@ map('i', '[', '[<C-g>u', { noremap = true, silent = true })
 map('i', '{', '{<C-g>u', { noremap = true, silent = true })
 map('i', '?', '?<C-g>u', { noremap = true, silent = true })
 map('i', '!', '!<C-g>u', { noremap = true, silent = true })
+
+
+-- Plugins
+map('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
+map('n', '<leader>m', '<cmd>Mason<cr>', { desc = 'Mason' })
+
+map('n', '<A-n>', '<nop>', { silent = true })
+map('n', '<A-p>', '<nop>', { silent = true })
+map({'v', 'o'}, 'ap', '<nop>', { silent = true })
+map({'v', 'o'}, 'ip', '<nop>', { silent = true })
+map({'v', 'o'}, 'ab', '<nop>', { silent = true })
