@@ -7,6 +7,9 @@ map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
 map('n', '<C-j>', 'i<cr><Esc>^', { noremap = true, silent = true })
 
+-- Clear search highlight
+map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
+
 
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
@@ -18,29 +21,27 @@ map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true
 map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
-map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
 -- Reuse some capital letters
 map({ 'n', 'x', 'o' }, 'H', '^', { noremap = true, silent = true })
 map({ 'n', 'x', 'o' }, 'L', '$', { noremap = true, silent = true })
 map({ 'n', 'x', 'o' }, 'M', '%', { noremap = true, silent = true })
 
+map('n', 'Y', 'y$', { noremap = true, silent = true })
 map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
-map('n', 'n', 'nzz', { noremap = true, silent = true })
-map('n', 'N', 'Nzz', { noremap = true, silent = true })
-
-map('n', 'Y', 'y$', { noremap = true, silent = true })
-
--- Clear search highlight
-map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
+map('n', 'n', 'nzzzv', { noremap = true, silent = true })
+map('n', 'N', 'Nzzzv', { noremap = true, silent = true })
+map('x', '<leader>p', '"_dp', { noremap = true, silent = true })
 
 -- Move line up and down
 map('n', '<A-down>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
 map('n', '<A-up>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
-map('v', '<A-down>', ":m '>+1<cr>gv=g,v", { noremap = true, silent = true })
+map('v', '<A-down>', ":m '>+1<cr>gv=gv", { noremap = true, silent = true })
 map('v', '<A-up>', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
+map('v', 'J', ":m '>+1<cr>gv=gv", { noremap = true, silent = true })
+map('v', 'K', ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
+
 
 -- Copy line up and down
 map('n', '<A-S-down>', 'm`yyp``j', { noremap = true, silent = true })
