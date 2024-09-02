@@ -10,9 +10,13 @@ local r = ls.restore_node
 ls.add_snippets(
   'cpp',
   {
-    s("ternary", {
-      -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-      i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else")
+    s('class', {
+      t('class '), i(1), t(' {'),
+      t({ '', 'public:' }),
+      t({ '', '\t' }), i(2),
+      t({ '', 'private:' }),
+      t({ '', '\t' }), i(3),
+      t({ '', '}' })
     })
   }
 )
