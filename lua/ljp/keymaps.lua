@@ -32,7 +32,6 @@ map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 map('n', 'n', 'nzzzv', { noremap = true, silent = true })
 map('n', 'N', 'Nzzzv', { noremap = true, silent = true })
-map('x', '<leader>p', '"_dp', { noremap = true, silent = true })
 
 -- Move line up and down
 map('n', '<A-down>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
