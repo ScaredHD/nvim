@@ -46,13 +46,11 @@ return {
             end
           end, { 'i', 's' }),
 
-          ['<A-n>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
-          ['<A-p>'] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
+          ['<A-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ['<A-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           ['<A-u>'] = cmp.mapping.scroll_docs(-4),
           ['<A-d>'] = cmp.mapping.scroll_docs(4),
-          ['<A-e>'] = cmp.mapping.complete(),
 
-          ['<C-Space>'] = cmp.mapping.complete(),
           ['<A-i>'] = cmp.mapping({
             i = function()
               if cmp.visible() then
@@ -68,14 +66,16 @@ return {
                 cmp.complete()
               end
             end,
-          })
+          }),
+
+          ['<C-Space>'] = cmp.mapping.complete(),
 
         },
 
         sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' }, -- For luasnip users.
-            { name = 'buffer' },
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' }, -- For luasnip users.
+          { name = 'buffer' },
         })
       }
 
@@ -96,7 +96,6 @@ return {
       require('lspconfig')['clangd'].setup {
         capabilities = capabilities
       }
-
     end
   }
 }
