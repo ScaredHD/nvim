@@ -53,6 +53,8 @@ map('n', '<A-S-down>', 'm`yyp``j', { noremap = true, silent = true })
 map('n', '<A-S-up>', 'm`yyP``k', { noremap = true, silent = true })
 
 -- Cursor movement in insert mode
+map('i', '<A-j>', '<down>', { noremap = true, silent = true })
+map('i', '<A-k>', '<up>', { noremap = true, silent = true })
 map('i', '<A-h>', '<left>', { noremap = true, silent = true })
 map('i', '<A-l>', '<right>', { noremap = true, silent = true })
 map('i', '<A-o>', '<end>', { noremap = true, silent = true })
@@ -84,3 +86,4 @@ map({ 'n', 'i' }, '<A-p>', '<nop>', { silent = true })
 map({ 'v', 'o' }, 'ap', '<nop>', { silent = true })
 map({ 'v', 'o' }, 'ip', '<nop>', { silent = true })
 map({ 'v', 'o' }, 'ab', '<nop>', { silent = true })
+

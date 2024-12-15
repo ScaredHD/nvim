@@ -8,33 +8,51 @@ return {
 
     config = function()
       local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
+      local ls = require 'luasnip'
 
       cmp.setup {
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            ls.lsp_expand(args.body)
           end
+        },
+
+        completion = {
+          completeopt = 'menu,menuone,noinsert'
+        },
+
+        experimental = {
+          ghost_text = true
         },
 
         mapping = {
           ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              if luasnip.expandable() then
-                luasnip.expand()
-              else
-                cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-              end
+            if ls.locally_jumpable(1) then
+              ls.jump(1)
+            elseif cmp.visible() then
+              cmp.confirm({ select = true })
+            elseif ls.expandable() then
+              ls.expand()
             else
               fallback()
             end
           end, { 'i', 's' }),
-          ['<A-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<A-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<A-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<A-f>'] = cmp.mapping.scroll_docs(4),
 
-          -- toggle suggestion menu
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if ls.locally_jumpable(-1) then
+              ls.jump(-1)
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+
+          ['<A-n>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
+          ['<A-p>'] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
+          ['<A-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<A-d>'] = cmp.mapping.scroll_docs(4),
+          ['<A-e>'] = cmp.mapping.complete(),
+
+          ['<C-Space>'] = cmp.mapping.complete(),
           ['<A-i>'] = cmp.mapping({
             i = function()
               if cmp.visible() then
@@ -49,30 +67,15 @@ return {
               else
                 cmp.complete()
               end
-            end
-          }),
+            end,
+          })
 
-          ['<A-n>'] = cmp.mapping(function(fallback)
-            if luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-
-          ['<A-p>'] = cmp.mapping(function(fallback)
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
         },
 
         sources = cmp.config.sources({
-          { name = 'luasnip' },
-          { name = 'nvim_lsp' },
-          { name = 'buffer' }
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' }, -- For luasnip users.
+            { name = 'buffer' },
         })
       }
 
@@ -90,19 +93,10 @@ return {
       })
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      require 'lspconfig'.clangd.setup {
+      require('lspconfig')['clangd'].setup {
         capabilities = capabilities
       }
-    end,
 
-    enabled = function()
-      local context = require 'cmp.config.context'
-      if vim.api.nvim_get_mode().mode == 'c' then
-        return true
-      else
-        return not context.in_treesitter_capture 'comment'
-            and not context.in_syntax_group 'Comment'
-      end
     end
   }
 }

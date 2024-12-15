@@ -35,8 +35,10 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
-})
 
-vim.cmd("colorscheme kanagawa")
+  rocks = {
+    enabled = false
+  }
+})
 
 require("lazy").setup({{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}})
