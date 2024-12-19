@@ -46,8 +46,13 @@ return {
             end
           end, { 'i', 's' }),
 
+
+          ['<A-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
           ['<A-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+
+          ['<A-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           ['<A-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+
           ['<A-u>'] = cmp.mapping.scroll_docs(-4),
           ['<A-d>'] = cmp.mapping.scroll_docs(4),
 
@@ -67,8 +72,6 @@ return {
               end
             end,
           }),
-
-          ['<C-Space>'] = cmp.mapping.complete(),
 
         },
 
