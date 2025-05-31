@@ -28,7 +28,8 @@ require("lazy").setup({
     { import = 'ljp.plugins' },
     { import = 'ljp.color' },
     { import = 'ljp.lsp' },
-    { import = 'ljp.completion' }
+    { import = 'ljp.completion' },
+    { import = 'ljp.snippets'}
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

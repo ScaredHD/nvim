@@ -17,6 +17,13 @@ ls.add_snippets(
       t({ '', 'private:' }),
       t({ '', '\t' }), i(3),
       t({ '', '}' })
+    }),
+
+    s('test', {
+      i(1, 'TEST('),
+      i(2, 'TestSuiteName'),
+      i(3, ', '),
+      i(4, 'TestName')
     })
   }
 )
