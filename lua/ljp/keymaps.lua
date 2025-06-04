@@ -13,13 +13,13 @@ map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
-map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q!<cr>', { noremap = true, silent = true })
+map({ 'i', 'x', 'n', 's' }, '<C-w><C-w>', ':q!<cr>', { noremap = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+map("n", "<A-S-h>", "<C-w>h", { desc = "Go to Left Window", noremap = true })
+map("n", "<A-S-j>", "<C-w>j", { desc = "Go to Lower Window", noremap = true })
+map("n", "<A-S-k>", "<C-w>k", { desc = "Go to Upper Window", noremap = true })
+map("n", "<A-S-l>", "<C-w>l", { desc = "Go to Right Window", noremap = true })
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
