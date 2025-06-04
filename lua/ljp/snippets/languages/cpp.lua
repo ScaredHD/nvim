@@ -19,11 +19,37 @@ ls.add_snippets(
       t({ '', '}' })
     }),
 
-    s('test', {
-      i(1, 'TEST('),
-      i(2, 'TestSuiteName'),
-      i(3, ', '),
-      i(4, 'TestName')
-    })
+    s('tp', {
+      t('template<'),i(0),t('>')
+    }),
+
+    s('tn', {
+      t('typename ')
+    }),
+
+    s('np', {
+      t('nullptr')
+    }),
+
+    s('dt', {
+      t('decltype('), i(0), t(')')
+    }),
+
+    s('mv', {
+      t('std::move('), i(0), t(')')
+    }),
+
+    s('fw', {
+      t('std::forward<'), i(1), t('>('), i(0), t(')')
+    }),
+
+    s('sp', {
+      t('std::shared_ptr<'), i(1), t('> '), i(0)
+    }),
+
+    s('up', {
+      t('std::unique_ptr<'), i(1), t('> '), i(0)
+    }),
+
   }
 )
