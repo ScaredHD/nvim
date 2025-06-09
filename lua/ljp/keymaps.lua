@@ -21,6 +21,11 @@ map("n", "<A-S-j>", "<C-w>j", { desc = "Go to Lower Window", noremap = true })
 map("n", "<A-S-k>", "<C-w>k", { desc = "Go to Upper Window", noremap = true })
 map("n", "<A-S-l>", "<C-w>l", { desc = "Go to Right Window", noremap = true })
 
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map('n', '[B', '<cmd>bfirst<cr>', { desc = 'First Buffer' })
+map('n', ']B', '<cmd>blast<cr>', { desc = 'Last Buffer' })
+
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
