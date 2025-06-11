@@ -18,6 +18,7 @@ return {
 
       lsp.clangd.setup {}
       lsp.lua_ls.setup {}
+      lsp.pyright.setup {}
     end
   },
 }
