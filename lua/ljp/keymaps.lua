@@ -13,7 +13,8 @@ map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
 
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
-map({ 'i', 'x', 'n', 's' }, '<C-w><C-w>', ':q!<cr>', { noremap = true, silent = true })
+map({ 'i', 'x', 'n', 's' }, '<C-q>', '<C-w>', { noremap = true })
+map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q!<cr>', { noremap = true })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<A-S-h>", "<C-w>h", { desc = "Go to Left Window", noremap = true })
