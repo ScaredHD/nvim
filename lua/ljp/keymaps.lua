@@ -5,15 +5,14 @@ map('i', 'jk', '<Esc>', { noremap = true, silent = true, nowait = true })
 
 map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
-map('n', '<C-j>', 'i<cr><Esc>^', { noremap = true, silent = true })
+map('n', '<Enter>', 'i<cr><Esc>^', { noremap = true, silent = true })
 
 -- Clear search highlight
 map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
 
-
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
-map({ 'i', 'x', 'n', 's' }, '<C-q>', '<C-w>', { noremap = true })
+map({ 'x', 'n', 's' }, '<C-q>', '<C-w>', { noremap = true })
 map({ 'i', 'x', 'n', 's' }, '<C-w>', ':q!<cr>', { noremap = true })
 
 -- Move to window using the <ctrl> hjkl keys
@@ -26,6 +25,7 @@ map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map('n', '[B', '<cmd>bfirst<cr>', { desc = 'First Buffer' })
 map('n', ']B', '<cmd>blast<cr>', { desc = 'Last Buffer' })
+map('n', '<leader>d', '<C-w>d', { desc = 'Show diagnostic' })
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })

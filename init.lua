@@ -1,6 +1,6 @@
 require 'ljp.options'
-require 'ljp.lazy'
 require 'ljp.keymaps'
+require 'ljp.lazy'
 
 vim.cmd("colorscheme kanagawa")
 

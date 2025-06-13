@@ -3,9 +3,9 @@ return {
   opts = {
     suggestion = {
       auto_trigger = true,
-      keymap = {
-        accept = "<A-y>"
-      }
+      -- keymap = {
+      --   accept = "<A-y>"
+      -- }
     }
   }
 }
