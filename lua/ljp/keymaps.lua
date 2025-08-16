@@ -98,3 +98,5 @@ map({ 'v', 'o' }, 'ap', '<nop>', { silent = true })
 map({ 'v', 'o' }, 'ip', '<nop>', { silent = true })
 map({ 'v', 'o' }, 'ab', '<nop>', { silent = true })
 
+vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!pwsh -File %<CR>', { noremap = true, silent = true })
+
