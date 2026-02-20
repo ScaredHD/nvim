@@ -19,11 +19,18 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
+map('n', '<A-k>', '<cmd>bprevious<cr>', { desc = 'Prev Buffer', noremap = true, silent = true })
+map('n', '<A-j>', '<cmd>bnext<cr>', { desc = 'Next Buffer', noremap = true, silent = true })
+map("n", "<A-h>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "<A-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map('n', '[B', '<cmd>bfirst<cr>', { desc = 'First Buffer' })
-map('n', ']B', '<cmd>blast<cr>', { desc = 'Last Buffer' })
+map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map('n', '<leader>d', '<C-w>d', { desc = 'Show diagnostic' })
 
 -- Resize window using <ctrl> arrow keys
