@@ -1,130 +1,76 @@
 return {
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-cmdline' },
   {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      local cmp = require 'cmp'
-      local ls = require 'luasnip'
-      local copilot = require 'copilot.suggestion'
-
-      cmp.setup {
-        snippet = {
-          expand = function(args)
-            ls.lsp_expand(args.body)
-          end
+    'saghen/blink.cmp',
+    version = '1.*',
+    opts = {
+      snippets = { preset = 'luasnip' },
+      completion = {
+        list = { selection = { preselect = false, auto_insert = false } },
+        menu = { border = 'rounded' },
+        documentation = { auto_show = true, window = { border = 'rounded' } },
+      },
+      keymap = {
+        preset = 'none',
+        ['<Tab>'] = {
+          function(cmp)
+            if cmp.is_visible() then
+              return cmp.accept()
+            end
+            local ok, copilot = pcall(require, 'copilot.suggestion')
+            if ok and copilot.is_visible() then
+              copilot.accept_line()
+              return true
+            end
+          end,
+          'snippet_forward',
+          'fallback',
         },
-
-        completion = {
-          completeopt = 'menu,menuone,noinsert',
-          keyword_length = 2,
-        },
-
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        },
-
-        mapping = {
-          ['<Tab>'] = cmp.mapping({
-            i = function(fallback)
-              if cmp.visible() then
-                cmp.confirm({ select = true })
-              elseif copilot.is_visible() then
-                copilot.accept_line()
-              elseif ls.expandable() then
-                ls.expand()
-              else
-                fallback()
-              end
-            end,
-            s = function(fallback)
-              if cmp.visible() then
-                cmp.confirm({ select = true })
-              elseif copilot.is_visible() then
-                copilot.accept_line()
-              elseif ls.expandable() then
-                ls.expand()
-              else
-                fallback()
-              end
-            end,
-            c = function()
-              if cmp.visible() then
-                cmp.confirm({ select = true })
-              else
-                cmp.complete()
-              end
-            end,
-          }),
-
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if copilot.is_visible() then
+        ['<S-Tab>'] = {
+          function()
+            local ok, copilot = pcall(require, 'copilot.suggestion')
+            if ok and copilot.is_visible() then
               copilot.accept()
+              return true
             end
-          end, { 'i', 's' }),
-
-          ['<A-j>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 's', 'c' }),
-          ['<A-k>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 's', 'c' }),
-
-          ['<A-n>'] = cmp.mapping(function(fallback)
-            if ls.locally_jumpable(1) then
-              ls.jump(1)
-            end
-          end, { 'i', 's' }),
-
-          ['<A-p>'] = cmp.mapping(function(fallback)
-            if ls.locally_jumpable(-1) then
-              ls.jump(-1)
-            end
-          end, { 'i', 's' }),
-
-          ['<A-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<A-d>'] = cmp.mapping.scroll_docs(4),
-
-          ['<A-i>'] = cmp.mapping({
-            i = function()
-              if cmp.visible() then
-                cmp.abort()
-              else
-                cmp.complete()
-              end
-            end,
-            c = function()
-              if cmp.visible() then
-                cmp.close()
-              else
-                cmp.complete()
-              end
-            end,
-          }),
-
+          end,
+          'snippet_backward',
+          'fallback',
         },
-
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For luasnip users.
-          { name = 'buffer' },
-          { name = 'path' },
-        })
-      }
-
-      cmp.setup.cmdline(
-        { '/', '?' },
-        { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' } } }
-      )
-
-      cmp.setup.cmdline(':', {
-        sources = cmp.config.sources({
-          { name = 'path' },
-          { name = 'cmdline' }
-        }),
-        matching = { disallow_symbol_nonprefix_matching = false }
-      })
-
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    end
-  }
+        ['<A-j>'] = { 'select_next', 'fallback' },
+        ['<A-k>'] = { 'select_prev', 'fallback' },
+        ['<A-n>'] = { 'snippet_forward', 'fallback' },
+        ['<A-p>'] = { 'snippet_backward', 'fallback' },
+        ['<A-u>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<A-d>'] = { 'scroll_documentation_down', 'fallback' },
+        ['<A-i>'] = { 'show', 'hide' },
+      },
+      sources = {
+        default = { 'lsp', 'snippets', 'buffer', 'path' },
+        providers = {
+          buffer = { min_keyword_length = 2 },
+        },
+      },
+      cmdline = {
+        enabled = true,
+        keymap = {
+          preset = 'cmdline',
+          ['<Tab>'] = { 'accept', 'show', 'fallback' },
+          ['<A-j>'] = { 'select_next', 'fallback' },
+          ['<A-k>'] = { 'select_prev', 'fallback' },
+          ['<A-i>'] = { 'show', 'hide' },
+        },
+        completion = { menu = { auto_show = true } },
+        sources = function()
+          local cmd_type = vim.fn.getcmdtype()
+          if cmd_type == '/' or cmd_type == '?' then
+            return { 'buffer' }
+          end
+          if cmd_type == ':' or cmd_type == '@' then
+            return { 'cmdline', 'path' }
+          end
+          return {}
+        end,
+      },
+    },
+  },
 }
