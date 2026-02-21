@@ -13,7 +13,8 @@ map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
 -- Basic windows-like shortcuts
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><Esc>')
 
-map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>qw", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>qs", "<cmd>wqa<cr>", { desc = "Save and Quit All" })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
