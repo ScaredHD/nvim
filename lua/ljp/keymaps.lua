@@ -112,9 +112,5 @@ map('i', '!', '!<C-g>u', { noremap = true, silent = true })
 map('n', '<leader><leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 map('n', '<leader><leader>m', '<cmd>Mason<cr>', { desc = 'Mason' })
 
-map({ 'v', 'o' }, 'ap', '<nop>', { silent = true })
-map({ 'v', 'o' }, 'ip', '<nop>', { silent = true })
-map({ 'v', 'o' }, 'ab', '<nop>', { silent = true })
-
 vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!pwsh -File %<CR>', { noremap = true, silent = true })
 
