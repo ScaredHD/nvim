@@ -6,6 +6,5 @@ return {
     config = function()
       require 'ljp.snippets.languages.cpp'
     end
-  },
-  'saadparwaiz1/cmp_luasnip'
+  }
 }
