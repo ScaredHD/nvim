@@ -9,5 +9,6 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>')
+    vim.keymap.set('n', '<A-e>', '<cmd>Neotree reveal<cr>')
   end
 }
