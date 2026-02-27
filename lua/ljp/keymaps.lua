@@ -114,3 +114,6 @@ map('n', '<leader><leader>m', '<cmd>Mason<cr>', { desc = 'Mason' })
 
 vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!pwsh -File %<CR>', { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>nh", function()
+  Snacks.notifier.show_history()
+end, { desc = "显示通知历史" })
