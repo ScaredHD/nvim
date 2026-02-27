@@ -5,7 +5,7 @@ vim.g.mapleader = ' '
 
 map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
-map('n', '<Enter>', 'i<cr><Esc>^', { noremap = true, silent = true })
+-- map('n', '<Enter>', 'i<cr><Esc>^', { noremap = true, silent = true })
 
 -- Clear search highlight
 map('n', '<Esc>', '<Esc>:noh<cr>', { noremap = true, silent = true })
