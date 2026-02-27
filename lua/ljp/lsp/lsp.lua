@@ -23,7 +23,7 @@ return {
 
           map('gd', vim.lsp.buf.definition, 'LSP: Goto Definition')
           map('gD', vim.lsp.buf.declaration, 'LSP: Goto Declaration')
-          map('gr', vim.lsp.buf.references, 'LSP: References')
+          map('gR', vim.lsp.buf.references, 'LSP: Goto References')
           map('gi', vim.lsp.buf.implementation, 'LSP: Goto Implementation')
           map('gt', vim.lsp.buf.type_definition, 'LSP: Goto Type Definition')
           map('K', vim.lsp.buf.hover, 'LSP: Hover')
