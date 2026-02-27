@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 vim.g.mapleader = ' '
 
-map('i', 'jk', '<Esc>', { noremap = true, silent = true, nowait = true })
+-- map('i', 'jk', '<Esc>', { noremap = true, silent = true, nowait = true })
 
 map('n', '<Space>', '<nop>', { noremap = true, silent = true })
 
