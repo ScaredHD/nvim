@@ -63,10 +63,10 @@ map('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 
 -- Move line up and down
 
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" , silent = true})
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" , silent = true})
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" , silent = true})
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" , silent = true})
 
 map('n', '<A-down>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
 map('n', '<A-up>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
