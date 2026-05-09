@@ -11,7 +11,7 @@ opt.expandtab = true          -- Use spaces instead of tabs
 opt.ignorecase = true         -- Ignore case
 opt.inccommand = "nosplit"    -- preview incremental substitute
 opt.laststatus = 3            -- global statusline
-opt.list = true               -- Show some invisible characters (tabs...
+opt.list = false              -- Show some invisible characters (tabs...
 opt.mouse = "a"               -- Enable mouse mode
 opt.number = true             -- Print line number
 opt.pumheight = 10            -- Maximum number of entries in a popup
@@ -32,6 +32,7 @@ opt.undolevels = 10000
 opt.updatetime = 200      -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.winminwidth = 5       -- Minimum window width
+opt.foldenable = false    -- Do not fold on file open
 
 vim.filetype.add({
   extension = {
