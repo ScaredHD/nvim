@@ -15,7 +15,9 @@ return {
                 },
             },
         })
-        telescope.load_extension('fzf')
+        -- Keep Telescope usable even if the optional native extension has not
+        -- been built yet (for example, on a fresh Windows installation).
+        pcall(telescope.load_extension, 'fzf')
 
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -29,7 +31,9 @@ return {
         'nvim-lua/plenary.nvim',
         { 
             'nvim-telescope/telescope-fzf-native.nvim',
-            build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install' 
+            build = vim.fn.has('win32') == 1
+                and 'cmake -S. -Bbuild -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release && cmake --build build --target install'
+                or 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --target install',
         }
     }
 }
